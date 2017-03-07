@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Rough chat</title>
+		<style>
+			html, input, button {
+				font-family: 'system-ui', sans-serif;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="chat">
+			<p>Online: {{users}}</p>
+			<ol>
+				<li v-for="message in messages">
+					{{message.text}}
+				</li>
+			</ol>
+			<form v-on:submit.prevent="sendMessage">
+				<input v-model="message" placeholder="..." autocomplete="off" />
+				<button>Send</button>
+			</form>
+		</div>
+
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script src="client.js"></script>
+
+	</body>
+</html>
