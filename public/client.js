@@ -1,27 +1,39 @@
 /* global io, Vue */
-var socket = io()
 
 var chat = new Vue({
 	el: '#chat',
-	data: {
-		users: 0,
-		message: '',
-		messages: []
+	data: function () {
+		return {
+			users: 0,
+			message: '',
+			messages: []
+		}
+	},
+	mounted: function () {
+		// Set up the socket connection with dynamic host.
+		var host = ''
+		var attrs  = this.$el.attributes
+		if (attrs.host) {
+			host = attrs.host.value
+		}
+		this.socket = io(host)
+
+		// Listen to socket events.
+		this.socket
+			.on('chat message', msg => {
+				this.$data.messages.push({text: msg})
+			})
+			.on('update users', users => {
+				this.$data.users = users
+			})
 	},
 	methods: {
 		sendMessage() {
 			var msg = this.$data.message
-			socket.emit('chat message', msg)
+			this.socket.emit('chat message', msg)
 			this.$data.messages.push({text: msg})
 			this.$data.message = ''
 		}
 	}
 })
 
-socket
-	.on('chat message', msg => {
-		chat.$data.messages.push({text: msg})
-	})
-	.on('update users', users => {
-		chat.$data.users = users
-	})

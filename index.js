@@ -34,4 +34,3 @@ function onConnect(socket) {
 		socket.broadcast.emit('chat message', msg)
 	})
 }
-
