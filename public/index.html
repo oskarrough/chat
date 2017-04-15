@@ -21,6 +21,8 @@
 	#chat ol {
 		padding: 0;
 		list-style: none;
+		height: 4rem;
+		overflow-y: scroll;
 	}
 	#chat li {
 		margin-bottom: 0.2em;
@@ -33,14 +35,19 @@
 		margin-right: 0.25em;
 		max-width: 100%;
 	}
+	#chat ol li:last-child {
+		height: 4px;
+		background: red;
+	}
 </style>
 
 <div id="chat" host="">
-	<p>Online: <span v-cloak>{{users}}</span></p>
+	<p>Online: <span v-cloak>{{users}}</span> {{isScrolledToBottom}}</p>
 	<ol v-cloak>
 		<li v-for="message in messages">
 			{{message.text}}
 		</li>
+		<li class="Chat-bottom"></li>
 	</ol>
 	<form v-on:submit.prevent="sendMessage">
 		<input v-model="message" placeholder="..." autocomplete="off" />
@@ -49,12 +56,11 @@
 </div>
 
 <!-- Development -->
-<!-- <script src="/socket.io/socket.io.js"></script> -->
-<!-- <script src="https://unpkg.com/vue"></script> -->
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://unpkg.com/vue"></script>
 <!-- Production -->
-<script src="https://unpkg.com/socket.io-client@1.7.3/dist/socket.io.slim.min.js"></script>
-<script src="https://unpkg.com/vue@2.2.6/dist/vue.min.js"></script>
+<!-- <script src="https://unpkg.com/socket.io-client@1.7.3/dist/socket.io.slim.min.js"></script> -->
+<!-- <script src="https://unpkg.com/vue@2.2.6/dist/vue.min.js"></script> -->
+<script src="https://unpkg.com/in-viewport@3.4.2/build/in-viewport.min.js"></script>
 <script async src="client.js"></script>
-
-
 
