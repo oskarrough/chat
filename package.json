@@ -1,13 +1,15 @@
 {
 	"scripts": {
 		"start": "nodemon --exec 'node .'",
-		"deploy": "now"
+		"deploy": "now",
+		"lint": "prettier --write --use-tabs --single-quote --no-semi --no-bracket-spacing 'index.js' 'public/**.*.js'"
 	},
 	"dependencies": {
 		"express": "^4.15.2",
 		"socket.io": "^1.7.3"
 	},
 	"devDependencies": {
-		"nodemon": "^1.11.0"
+		"nodemon": "^1.11.0",
+		"prettier": "^1.1.0"
 	}
 }
