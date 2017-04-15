@@ -25,4 +25,3 @@ socket
 	.on('update users', users => {
 		chat.$data.users = users
 	})
-

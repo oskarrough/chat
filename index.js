@@ -10,7 +10,11 @@ app.use(express.static('public'))
 app.get('/', (req, res) => {
 	res.sendFile(`${__dirname}/index.html`)
 })
+http.listen(port, () => {
+	console.log('Server listening at port %d', port)
+})
 
+// Keep track of connected clients.
 var users = 0
 
 // Docs: https://github.com/socketio/socket.io/blob/master/docs/emit.md
@@ -26,10 +30,8 @@ function onConnect(socket) {
 	})
 
 	socket.on('chat message', msg => {
-		socket.broadcast.emit('chat message', msg) // send to all but the sender
+		// Send to all but the sender. Avoids duplicate messages.
+		socket.broadcast.emit('chat message', msg)
 	})
 }
 
-http.listen(port, () => {
-	console.log('Server listening at port %d', port)
-})
