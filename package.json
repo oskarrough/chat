@@ -1,4 +1,6 @@
 {
+	"name": "rough-chat",
+	"private": true,
 	"scripts": {
 		"start": "nodemon --exec 'node .'",
 		"deploy": "now",
@@ -6,10 +8,10 @@
 	},
 	"dependencies": {
 		"express": "^4.15.2",
+		"nodemon": "^1.11.0",
 		"socket.io": "^1.7.3"
 	},
 	"devDependencies": {
-		"nodemon": "^1.11.0",
 		"prettier": "^1.1.0"
 	}
 }
