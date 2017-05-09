@@ -2,17 +2,17 @@
 
 var chat = new Vue({
 	el: '#chat',
-	data: function () {
+	data: function() {
 		return {
 			users: 0,
 			message: '',
 			messages: []
 		}
 	},
-	mounted: function () {
+	mounted: function() {
 		// Set up the socket connection with dynamic host.
 		var host = ''
-		var attrs  = this.$el.attributes
+		var attrs = this.$el.attributes
 		if (attrs.host) {
 			host = attrs.host.value
 		}
@@ -36,4 +36,3 @@ var chat = new Vue({
 		}
 	}
 })
-
