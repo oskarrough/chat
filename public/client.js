@@ -4,9 +4,10 @@ var chat = new Vue({
 	el: '#chat',
 	data: function() {
 		return {
-			users: 0,
+			username: 'Anonymous',
 			message: '',
-			messages: []
+			messages: [],
+			users: 0
 		}
 	},
 	mounted: function() {
@@ -20,8 +21,8 @@ var chat = new Vue({
 
 		// Listen to socket events.
 		this.socket
-			.on('chat message', msg => {
-				this.$data.messages.push({text: msg})
+			.on('chat message', message => {
+				this.$data.messages.push(message)
 			})
 			.on('update users', users => {
 				this.$data.users = users
@@ -29,9 +30,13 @@ var chat = new Vue({
 	},
 	methods: {
 		sendMessage() {
-			var msg = this.$data.message
-			this.socket.emit('chat message', msg)
-			this.$data.messages.push({text: msg})
+			var message = {
+				username: this.$data.username,
+				content: this.$data.message
+			}
+			if (!message.content.length) return
+			this.socket.emit('chat message', message)
+			this.$data.messages.push(message)
 			this.$data.message = ''
 		}
 	}
