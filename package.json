@@ -4,7 +4,7 @@
 	"scripts": {
 		"start": "nodemon --exec 'node .'",
 		"deploy": "now",
-		"lint": "prettier --write --use-tabs --single-quote --no-semi --no-bracket-spacing 'index.js' 'public/**/*.js'"
+		"format": "prettier --write --use-tabs --single-quote --no-semi --no-bracket-spacing 'index.js' 'public/**/*.js'"
 	},
 	"dependencies": {
 		"express": "^4.15.2",
