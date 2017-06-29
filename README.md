@@ -8,6 +8,10 @@ You can deploy the chat using [now.sh](https://zeit.co/now):
 
 - `now oskarrough/chat`
 
+... or you can deploy to Heroku:
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/oskarrough/chat)
+
 OR, if you want the chat on your own site, do this:
 
 - Run `now` and copy the URL you get into the index.html like this:
