@@ -10,13 +10,13 @@ var template = `
 		</li>
 	</ol>
 	<form class="df" v-if="!username" v-on:submit.prevent="setUsername">
-		<input v-model="usernameInput" class="f-1" placeholder="Hi, what may we call you?" title="What is your name?" autofocus />
-		<button>Chat</button>
+		<input autofocus v-model="usernameInput" class="f-1" placeholder="Hi, what may we call you?" title="What is your name?" />
+		<button type="submit">OK</button>
 	</form>
 	<form v-else class="row" v-on:submit.prevent="sendMessage">
-		<span v-on:click="changeUsername">{{username}}</span>
+		<button v-on:click="changeUsername" title="Tap here to change your name" class="reset-btn" type="button">{{username}}</button>
 		<input v-model="message" placeholder="Send a message" class="f-1 ml-05" autofocus autocomplete="off" />
-		<button>Chat</button>
+		<button type="submit">Chat</button>
 	</form>
 </div>
 `
@@ -67,6 +67,11 @@ var chat = new Vue({
 		},
 		changeUsername() {
 			this.username = ''
+			this.$nextTick(() => {
+				var el = this.$el.querySelector('input')
+				el.focus()
+				el.select()
+			})
 		}
 	}
 })

@@ -2,15 +2,6 @@
 <title>Rough chat</title>
 
 <style>
-	/* utilities */
-	[v-cloak] { display: none; }
-	.w-100 { width: 100%; }
-	.f-1 { flex: 1; }
-	.tr { text-align: right; }
-	.fr { float: right; }
-	.df { display: flex; }
-	.row { display: flex; align-items: center; flex-flow: row nowrap;}
-	.ml-05 { margin-left: 0.5em; }
 	/* the chat component */
 	.RoughChat {
 		font-family: 'system-ui', sans-serif;
@@ -35,24 +26,26 @@
 		margin-bottom: 0.2em;
 	}
 	.RoughChat form input {
+		border: 1px solid hsl(0, 0%, 70%);
 		margin-right: 0.25em;
 		max-width: 100%;
 		padding: 0.3em;
 	}
-	.RoughChat form input,
-	.RoughChat form button {
+	.RoughChat button[type="submit"] {
 		border: 1px solid hsl(0, 0%, 70%);
-	}
-	.RoughChat button {
 		background-color: blue;
 		color: white;
 	}
-	.RoughChat .username {
-		width: 7rem;
-	}
-	.RoughChat .message {
-		flex: 1;
-	}
+	/* utilities */
+	[v-cloak] { display: none; }
+	.w-100 { width: 100%; }
+	.f-1 { flex: 1; }
+	.tr { text-align: right; }
+	.fr { float: right; }
+	.df { display: flex; }
+	.row { display: flex; align-items: center; flex-flow: row nowrap;}
+	.ml-05 { margin-left: 0.5em; }
+	.reset-btn { background: none; padding: 0; border: 0; }
 </style>
 
 <div id="chat" host=""></div>
