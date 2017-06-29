@@ -2,18 +2,18 @@
 
 var template = `
 <div class="RoughChat">
-	<p>Online: <span v-cloak>{{users}}</span></p>
+	<p v-if="users" class="tr">Online: <span v-cloak>{{users}}</span></p>
 	<ol v-cloak>
 		<li v-for="message in messages">
-			<span v-if="message.username">{{message.username}}</span>
-			<span v-else>Anonymous</span>: {{message.content}}
+			<strong v-if="message.username">{{message.username}}</strong>
+			<strong v-else>Anonymous</strong>: {{message.content}}
 		</li>
 	</ol>
-	<form v-on:submit.prevent="sendMessage">
+	<form class="df" v-on:submit.prevent="sendMessage">
 		<input class="username" title="What is your name?" 
 			v-model="username"
 			placeholder="Your nickname" />
-		<input v-model="message" placeholder="Send a message" class="message" autocomplete="off" />
+		<input v-model="message" placeholder="Send a message" class="message" autofocus autocomplete="off" />
 		<button>Chat</button>
 	</form>
 </div>
