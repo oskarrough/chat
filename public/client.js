@@ -3,7 +3,7 @@
 var template = `
 <div class="RoughChat">
 	<p v-if="users > 1" class="tr">Online: <span v-cloak>{{users}}</span></p>
-	<ol v-cloak>
+	<ol v-cloak class="reset-list">
 		<li v-for="message in messages">
 			<strong v-if="message.username">{{message.username}}</strong>
 			<strong v-else>Anonymous</strong>: {{message.content}}
