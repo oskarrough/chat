@@ -2,8 +2,8 @@
 	"name": "rough-chat",
 	"private": true,
 	"scripts": {
-		"start": "nodemon --exec 'node .'",
-		"deploy": "now",
+		"start": "nodemon --exec 'node server.js'",
+		"now-start": "NODE_ENV=production node server.js",
 		"format": "prettier --write --use-tabs --single-quote --no-semi --no-bracket-spacing 'index.js' 'public/**/*.js'"
 	},
 	"dependencies": {

@@ -1,21 +1,12 @@
 # Chat
 
-A little web chat with zero persistence. Uses express+socket.io and Vue.js.
-
-## Development
-
-- `git clone git@github.com:oskarrough/chat.git`
-- `cd chat`
-- `yarn install`
-- `yarn start`
-
-You can run `yarn lint` to automatically format all scripts.
+A little web chat with zero persistence.
 
 ## Deployment
 
 You can deploy the chat using [now.sh](https://zeit.co/now):
 
-- `now`
+- `now oskarrough/chat`
 
 OR, if you want the chat on your own site, do this:
 
@@ -28,3 +19,13 @@ OR, if you want the chat on your own site, do this:
 ```
 
 Chat away!
+
+## Development
+
+- `git clone git@github.com:oskarrough/chat.git`
+- `cd chat`
+- `yarn`
+- `yarn start`
+
+You can run `yarn format` to automatically format all scripts.
+
