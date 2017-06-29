@@ -2,18 +2,16 @@
 <title>Rough chat</title>
 
 <style>
-	[v-cloak] {
-		display: none;
-	}
-	.tr {
-		text-align: right;
-	}
-	.fr {
-		float: right;
-	}
-	.df {
-		display: flex;
-	}
+	/* utilities */
+	[v-cloak] { display: none; }
+	.w-100 { width: 100%; }
+	.f-1 { flex: 1; }
+	.tr { text-align: right; }
+	.fr { float: right; }
+	.df { display: flex; }
+	.row { display: flex; align-items: center; flex-flow: row nowrap;}
+	.ml-05 { margin-left: 0.5em; }
+	/* the chat component */
 	.RoughChat {
 		font-family: 'system-ui', sans-serif;
 		font-size: 15px;
