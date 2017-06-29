@@ -5,12 +5,9 @@
 	[v-cloak] {
 		display: none;
 	}
-	#chat, #chat input, #chat button {
+	.RoughChat {
 		font-family: 'system-ui', sans-serif;
-		font-size: 1em;
-	}
-	#chat {
-		font-size: 16px;
+		font-size: 15px;
 		padding: 0 0.5em 0.5em;
 		background: hsl(0, 0%, 90%);
 		border: 1px solid hsl(0, 0%, 75%);
@@ -18,42 +15,46 @@
 		border-right-color: hsl(0, 0%, 70%);
 		border-bottom-color: hsl(0, 0%, 70%);
 	}
-	#chat ol {
+	.RoughChat input,
+	.RoughChat button {
+		font-family: 'system-ui', sans-serif;
+		font-size: inherit;
+	}
+	.RoughChat ol {
 		padding: 0;
 		list-style: none;
 	}
-	#chat li {
+	.RoughChat li {
 		margin-bottom: 0.2em;
 	}
-	#chat form {
+	.RoughChat ol span {
+		font-weight: bold;
+	}
+	.RoughChat form {
 		display: flex
 	}
-	#chat form input {
+	.RoughChat form input {
 		margin-right: 0.25em;
 		max-width: 100%;
 		padding: 0.3em;
 	}
-	#chat .username{
+	.RoughChat form input,
+	.RoughChat form button {
+		border: 1px solid hsl(0, 0%, 70%);
+	}
+	.RoughChat button {
+		background-color: blue;
+		color: white;
+	}
+	.RoughChat .username {
 		width: 7rem;
 	}
-	#chat .message {
+	.RoughChat .message {
 		flex: 1;
 	}
 </style>
 
-<div id="chat" host="">
-	<p>Online: <span v-cloak>{{users}}</span></p>
-	<ol v-cloak>
-		<li v-for="message in messages">
-			{{message.username}}: {{message.content}}
-		</li>
-	</ol>
-	<form v-on:submit.prevent="sendMessage">
-		<input v-model="username" placeholder="Anonymous" class="username" />
-		<input v-model="message" placeholder="Send a message" class="message" autocomplete="off" />
-		<button>Chat</button>
-	</form>
-</div>
+<div id="chat" host=""></div>
 
 <!-- Development -->
 <script src="/socket.io/socket.io.js"></script>
