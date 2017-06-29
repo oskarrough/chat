@@ -2,15 +2,10 @@
 <title>Rough chat</title>
 
 <style>
-	[v-cloak] {
-		display: none;
-	}
-	#chat, #chat input, #chat button {
+	/* the chat component */
+	.RoughChat {
 		font-family: 'system-ui', sans-serif;
-		font-size: 1em;
-	}
-	#chat {
-		font-size: 16px;
+		font-size: 15px;
 		padding: 0 0.5em 0.5em;
 		background: hsl(0, 0%, 90%);
 		border: 1px solid hsl(0, 0%, 75%);
@@ -18,43 +13,50 @@
 		border-right-color: hsl(0, 0%, 70%);
 		border-bottom-color: hsl(0, 0%, 70%);
 	}
-	#chat ol {
-		padding: 0;
-		list-style: none;
+	.RoughChat ol {
+		list-style-type: none;
+		padding-left: 0;
 	}
-	#chat li {
+	.RoughChat input,
+	.RoughChat button {
+		font-family: 'system-ui', sans-serif;
+		font-size: inherit;
+	}
+	.RoughChat li {
 		margin-bottom: 0.2em;
 	}
-	#chat form {
-		display: flex
-	}
-	#chat form input {
-		flex: 1;
+	.RoughChat form input {
+		border: 1px solid hsl(0, 0%, 70%);
 		margin-right: 0.25em;
 		max-width: 100%;
+		padding: 0.3em;
 	}
+	.RoughChat button[type="submit"] {
+		border: 1px solid hsl(0, 0%, 70%);
+		background-color: blue;
+		color: white;
+	}
+	/* utilities */
+	[v-cloak] { display: none; }
+	.w-100 { width: 100%; }
+	.f-1 { flex: 1; }
+	.tr { text-align: right; }
+	.fr { float: right; }
+	.df { display: flex; }
+	.row { display: flex; align-items: center; flex-flow: row nowrap;}
+	.ml-05 { margin-left: 0.5em; }
+	.reset-btn { background: none; padding: 0; border: 0; }
 </style>
 
-<div id="chat" host="">
-	<p>Online: <span v-cloak>{{users}}</span></p>
-	<ol v-cloak>
-		<li v-for="message in messages">
-			{{message.text}}
-		</li>
-	</ol>
-	<form v-on:submit.prevent="sendMessage">
-		<input v-model="message" placeholder="..." autocomplete="off" />
-		<button>Chat</button>
-	</form>
-</div>
+<div id="chat" host=""></div>
 
 <!-- Development -->
-<!-- <script src="/socket.io/socket.io.js"></script> -->
-<!-- <script src="https://unpkg.com/vue"></script> -->
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://unpkg.com/vue"></script>
+
 <!-- Production -->
-<script src="https://unpkg.com/socket.io-client@1.7.3/dist/socket.io.slim.min.js"></script>
-<script src="https://unpkg.com/vue@2.2.6/dist/vue.min.js"></script>
+<!-- <script src="https://unpkg.com/socket.io-client@2.0.1/dist/socket.io.slim.js"></script> -->
+<!-- <script src="https://unpkg.com/vue@2.3.3/dist/vue.min.js"></script> -->
+
 <script async src="client.js"></script>
-
-
 
