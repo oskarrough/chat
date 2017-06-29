@@ -21,9 +21,12 @@ var template = `
 </div>
 `
 
-var chat = new Vue({
-	el: '#chat',
+var chat = {
+	name: 'rough-chat',
 	template: template,
+	props: {
+		host: ''
+	},
 	data: function() {
 		return {
 			usernameInput: '',
@@ -35,12 +38,7 @@ var chat = new Vue({
 	},
 	mounted: function() {
 		// Set up the socket connection with dynamic host.
-		var host = ''
-		var attrs = this.$el.attributes
-		if (attrs.host) {
-			host = attrs.host.value
-		}
-		this.socket = io(host)
+		this.socket = io(this.$props.host)
 
 		// Listen to socket events.
 		this.socket
@@ -74,4 +72,18 @@ var chat = new Vue({
 			})
 		}
 	}
+}
+
+var App = new Vue({
+	el: '.RoughChat',
+	render: function(createElement) {
+		var attrs = this.$el.attributes
+		var host = attrs.host ? attrs.host.value : ''
+		return createElement(chat, {
+			props: {
+				host
+			}
+		})
+	},
 })
+
