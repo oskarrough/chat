@@ -12,16 +12,18 @@ You can deploy the chat using [now.sh](https://zeit.co/now):
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/oskarrough/chat)
 
-If you want to host the chat client yourself, deploy the chat like above and copy/paste the following into your page:
+In any case, insert the URL you get into this snippet and paste it where you want the chat to appear.
 
 ```markup
-<div class="RoughChat" host="insert the full url to your chat server here">
+<div class="RoughChat" url="">
 <script src="https://unpkg.com/socket.io-client@2.0.3/dist/socket.io.slim.js"></script>
 <script src="https://unpkg.com/vue@2.3.3/dist/vue.min.js"></script>
 <script src="https://rawgit.com/oskarrough/chat/master/public/client.js"></script>
 ```
 
-Chat away! Note, currently the scripts HAVE to come after the `.RoughChat` element.
+Chat away!
+
+> Note, the `.RoughChat` element needs to come before the `client.js` script.
 
 ## Development
 

@@ -1,5 +1,5 @@
 {
-	"name": "rough-chat",
+	"name": "chat",
 	"private": true,
 	"scripts": {
 		"start": "nodemon --exec 'node .'",
