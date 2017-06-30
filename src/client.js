@@ -84,6 +84,5 @@ var App = new Vue({
 				host
 			}
 		})
-	},
+	}
 })
-
