@@ -1,6 +1,19 @@
 <!doctype html>
 <title>Rough chat</title>
 
+<div class="RoughChat"></div>
+<!-- <div class="RoughChat" host="https://rough-chat-sfyeknnzbw.now.sh/"></div> -->
+
+<!-- Development -->
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="client.js"></script>
+
+<!-- Production -->
+<!-- <script src="https://unpkg.com/socket.io-client@2.0.3/dist/socket.io.slim.js"></script> -->
+<!-- <script src="https://unpkg.com/vue@2.3.3/dist/vue.min.js"></script> -->
+<!-- <script src="https://rawgit.com/oskarrough/chat/master/src/client.js"></script> -->
+
 <style>
 	/* the chat component */
 	.RoughChat {
@@ -12,10 +25,6 @@
 		border-top-color: hsl(0, 0%, 85%);
 		border-right-color: hsl(0, 0%, 70%);
 		border-bottom-color: hsl(0, 0%, 70%);
-	}
-	.RoughChat ol {
-		list-style-type: none;
-		padding-left: 0;
 	}
 	.RoughChat input,
 	.RoughChat button {
@@ -46,17 +55,5 @@
 	.row { display: flex; align-items: center; flex-flow: row nowrap;}
 	.ml-05 { margin-left: 0.5em; }
 	.reset-btn { background: none; padding: 0; border: 0; }
+	.reset-list  { list-style-type: none; padding-left: 0; }
 </style>
-
-<div class="RoughChat"></div>
-<!-- <div class="RoughChat" host="https://rough-chat-sfyeknnzbw.now.sh/"></div> -->
-
-<!-- Development -->
-<script src="/socket.io/socket.io.js"></script>
-<script src="https://unpkg.com/vue"></script>
-
-<!-- Production -->
-<!-- <script src="https://unpkg.com/socket.io-client@2.0.1/dist/socket.io.slim.js"></script> -->
-<!-- <script src="https://unpkg.com/vue@2.3.3/dist/vue.min.js"></script> -->
-<script async src="client.js"></script>
-

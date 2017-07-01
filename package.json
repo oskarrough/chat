@@ -1,10 +1,10 @@
 {
-	"name": "rough-chat",
+	"name": "chat",
 	"private": true,
 	"scripts": {
-		"start": "nodemon --exec 'node .'",
-		"deploy": "now",
-		"format": "prettier --write --use-tabs --single-quote --no-semi --no-bracket-spacing 'index.js' 'public/**/*.js'"
+		"start": "nodemon --exec 'node src/server.js'",
+		"now-start": "NODE_ENV=production node src/server.js",
+		"format": "prettier --write --use-tabs --single-quote --no-semi --no-bracket-spacing 'src/**/*.js'"
 	},
 	"dependencies": {
 		"express": "^4.15.2",

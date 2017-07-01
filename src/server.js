@@ -5,7 +5,7 @@ var io = require('socket.io')(http)
 
 var port = process.env.PORT || 3000
 
-app.use(express.static('public'))
+app.use(express.static('src'))
 app.get('/', (req, res) => {
 	res.sendFile(`${__dirname}/index.html`)
 })
