@@ -1,17 +1,23 @@
 {
-	"name": "chat",
-	"private": true,
-	"scripts": {
-		"start": "nodemon --exec 'node src/server.js'",
-		"now-start": "NODE_ENV=production node src/server.js",
-		"format": "prettier --write --use-tabs --single-quote --no-semi --no-bracket-spacing 'src/**/*.js'"
-	},
-	"dependencies": {
-		"express": "^4.15.2",
-		"nodemon": "^1.11.0",
-		"socket.io": "^2.0.1"
-	},
-	"devDependencies": {
-		"prettier": "^1.5.3"
-	}
+  "name": "chat",
+  "private": true,
+  "scripts": {
+    "start": "nodemon --exec 'node src/server.js'",
+    "now-start": "NODE_ENV=production node src/server.js",
+    "format": "prettier --write --use-tabs --single-quote --no-semi --no-bracket-spacing 'src/**/*.js' test.js",
+    "test": "npm-run-all -p -r start ava",
+    "ava": "ava"
+  },
+  "dependencies": {
+    "express": "^4.15.2",
+    "nodemon": "^1.11.0",
+    "socket.io": "^2.0.1"
+  },
+  "devDependencies": {
+    "ava": "^0.21.0",
+    "chromeless": "^1.0.1",
+    "nightmare": "^2.10.0",
+    "npm-run-all": "^4.0.2",
+    "prettier": "^1.5.3"
+  }
 }

@@ -26,4 +26,8 @@ A little web chat with zero persistence.
 - `yarn`
 - `yarn start`
 
-You can run `yarn format` to automatically format all scripts.
+## Testing
+
+- `yarn format` (formats all scripts and tests)
+- `yarn test` (runs tests - requires Google Chrome for now)
+

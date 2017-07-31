@@ -14,7 +14,7 @@ var template = `
 		<button type="submit">OK</button>
 	</form>
 	<form v-else class="row" v-on:submit.prevent="sendMessage">
-		<button v-on:click="changeUsername" title="Tap here to change your name" class="reset-btn" type="button">&#x270d; {{username}}</button>
+		<button v-on:click="changeUsername" title="Tap here to change your name" class="reset-btn" type="button">{{username}}</button>
 		<input v-model="message" placeholder="Send a message" class="f-1 ml-05" autofocus autocomplete="off" />
 		<button type="submit">Chat</button>
 	</form>
