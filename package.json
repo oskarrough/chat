@@ -15,7 +15,6 @@
   },
   "devDependencies": {
     "ava": "^0.21.0",
-    "chromeless": "^1.0.1",
     "nightmare": "^2.10.0",
     "npm-run-all": "^4.0.2",
     "prettier": "^1.5.3"
