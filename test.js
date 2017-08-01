@@ -1,22 +1,39 @@
 import Nightmare from 'nightmare'
 import test from 'ava'
 
-const server = options => {
-	const nightmare = Nightmare(options)
-	return nightmare.goto('http://localhost:3000')
-}
+// Set up nightmare server.
+test.beforeEach(async t => {
+	t.context.nightmare = Nightmare({
+		// show: true,
+		// openDevTools: {
+		// 	mode: 'detach'
+		// }
+	})
+	await t.context.nightmare.goto('http://localhost:3000')
+})
+
+// Close it again.
+test.afterEach(async t => {
+	await t.context.nightmare.end()
+})
 
 test('can set username and post a message', async t => {
-	const message = await server({show:true})
+	const result = await t.context.nightmare
 		.type('.RoughChat input', 'Donald Byrd')
 		.click('.RoughChat button')
-		.wait(100)
 		.type('.RoughChat input', 'it grooves')
 		.click('.RoughChat button[type="submit"]')
-		.wait(100)
+		.type('.RoughChat input', 'yes it does')
+		.click('.RoughChat button[type="submit"]')
 		.evaluate(function() {
-			return document.querySelectorAll('.RoughChat ol li')[0].innerText
+			var list = document.querySelectorAll('.RoughChat ol li')
+			return {
+				amount: list.length,
+				msg: list[0].innerText
+			}
 		})
 		.end()
-	t.is(message, 'Donald Byrd: it grooves')
+	t.is(result.amount, 2)
+	t.is(result.msg, 'Donald Byrd: it grooves')
 })
+
