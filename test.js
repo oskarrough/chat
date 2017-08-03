@@ -9,12 +9,12 @@ test.beforeEach(async t => {
 		// 	mode: 'detach'
 		// }
 	})
-	await t.context.nightmare.goto('http://localhost:3000')
+	return t.context.nightmare.goto('http://localhost:3000')
 })
 
 // Close it again.
 test.afterEach(async t => {
-	await t.context.nightmare.end()
+	return t.context.nightmare.end()
 })
 
 test('can set username and post a message', async t => {
