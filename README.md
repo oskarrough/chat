@@ -28,6 +28,6 @@ A little web chat with zero persistence.
 
 ## Testing
 
-- `yarn format` (formats all scripts and tests)
-- `yarn test` (runs tests - requires Google Chrome for now)
+- `yarn prettier` (format all scripts and tests through prettier)
+- `yarn test`
 

@@ -1,1 +1,7 @@
+# editorconfig.org
+
+[*]
 indent_style = tab
+indent_size = tab
+tab_width = 2
+

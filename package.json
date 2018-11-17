@@ -4,9 +4,9 @@
   "scripts": {
     "start": "nodemon --exec 'node src/server.js'",
     "now-start": "NODE_ENV=production node src/server.js",
-    "format": "prettier --write --use-tabs --single-quote --no-semi --no-bracket-spacing 'src/**/*.js' test.js",
-    "test": "npm-run-all -p -r start ava",
-    "ava": "ava"
+    "cy:run": "cypress run",
+    "test": "start-server-and-test now-start http://localhost:3000 cy:run",
+    "prettier": "prettier --write 'src/**/*.js' test.js"
   },
   "dependencies": {
     "express": "^4.15.2",
