@@ -12,6 +12,7 @@ module.exports = {
 	// Why is this needed when I already extend the prettier plugin?
 	plugins: ['prettier'],
 	rules: {
-		'prettier/prettier': 'error'
+		'prettier/prettier': 'error',
+		'no-console': 'off'
 	}
 }
